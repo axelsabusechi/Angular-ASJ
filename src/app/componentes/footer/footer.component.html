@@ -1,0 +1,13 @@
+<footer class="text-center p-4 bg-dark text-white">
+
+  <img >
+  <h2 *ngIf="!mostrar">
+    <ul>
+      <li>{{redSocial[0]}}</li>
+      <li>{{redSocial[1]}}</li>
+      <li>{{redSocial[2]}}</li>
+    </ul>
+  </h2>
+  <button class="btn btn-secondary " (click) = "mostrar = !mostrar">{{mostrar? 'Redes Sociales' : 'ocultar'}}</button>
+
+</footer>

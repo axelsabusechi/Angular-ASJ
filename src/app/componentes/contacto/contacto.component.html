@@ -1,0 +1,120 @@
+<main class="container text-center p-4">
+
+  <div class="wow fadeInDownBig">
+    <h1 class="contacto">CONTACTO</h1>
+  </div>
+
+
+  <!--  template-driven form-->
+
+  <form #formTD="ngForm" autocomplete="off" (ngSubmit)="enviarFormulario(formTD)">
+
+    <!--    campo nombre-->
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input #nombreControl="ngModel"
+             type="text"
+             class="form-control"
+             id="nombre"
+             name="nombre"
+             [(ngModel)]="contacto.nombre"
+             required>
+
+      <div *ngIf="nombreControl.invalid && nombreControl.dirty" class="alert alert-warning">
+<!--        <p *ngIf="nombreControl.errors['required']">Campo requerido</p>-->
+      </div>
+
+    </div>
+
+    <!--    campo apellido-->
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input #apellidoControl="ngModel"
+             type="text"
+             class="form-control"
+             id="apellido"
+             name="apellido"
+             [(ngModel)]="contacto.apellido"
+             required>
+
+      <div *ngIf="apellidoControl.invalid && apellidoControl.dirty" class="alert alert-warning">
+        <p>Campo requerido</p>
+      </div>
+
+    </div>
+    <!--    campo edad-->
+    <div class="form-group">
+      <label for="edad">Edad</label>
+      <input #edadControl="ngModel"
+             type="number"
+             class="form-control"
+             id="edad"
+             name="edad"
+             [(ngModel)]="contacto.edad"
+             required>
+      <div *ngIf="edadControl.invalid && edadControl.dirty" class="alert alert-warning">
+        <p>Campo requerido</p>
+      </div>
+    </div>
+
+    <!--    boton -->
+
+    <div class="row justify-content-center my-3">
+      <div class="col-4">
+        <button class="btn btn-success" [disabled]="formTD.invalid">Enviar
+        </button>
+      </div>
+    </div>
+
+  </form>
+
+  <!--  reactive form-->
+
+  <form [formGroup]="formGroup" autocomplete="off">
+    <!--    campo email-->
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="text"
+             class="form-control"
+             id="email"
+             name="email"
+             formControlName="email">
+
+      <div *ngIf="formGroup.controls['email'].errors && formGroup.controls['email'].dirty" class="alert alert-warning">
+        <p *ngIf="formGroup.controls['email'].errors['required']">
+          Campo Requerido
+        </p>
+        <p *ngIf="formGroup.controls['email'].errors['minlength']">
+          Al menos debe de ingresar {{ minimosCaracteres }} caracteres
+        </p>
+        <p *ngIf="formGroup.controls['email'].errors['contieneEspacios']">
+          El campo no debe de contener espacios
+        </p>
+      </div>
+
+    </div>
+
+    <!--    campo consulta-->
+
+    <div class="form-group">
+      <label for="consulta">Consulta</label>
+      <input type="text"
+             class="form-control"
+             id="consulta"
+             name="consulta"
+             formControlName="consulta">
+    </div>
+
+
+    <!--boton-->
+
+    <div class="row justify-content-center my-3">
+      <div class="col-4">
+        <button class="btn btn-success" [disabled]="formGroup.invalid" (click)="enviarFormRF()">Enviar
+        </button>
+      </div>
+    </div>
+
+  </form>
+
+</main>

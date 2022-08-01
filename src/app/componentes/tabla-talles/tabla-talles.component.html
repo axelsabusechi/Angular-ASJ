@@ -1,0 +1,42 @@
+<main class="container text-center p-4">
+
+  <div class="wow fadeInDownBig">
+    <h1 class="contacto">TABLA DE TALLES</h1>
+  </div>
+  <table class="table table-striped">
+    <tr class="bg-success text-white">
+      <th>Medida del pie</th>
+      <th>AR</th>
+      <th>UK</th>
+      <th>EUR</th>
+      <th>US Hombre</th>
+      <th>US Mujer</th>
+    </tr>
+    <tr *ngFor="let tall of talles">
+      <td>{{tall.ar}}</td>
+      <td>{{tall.uk}}</td>
+      <td>{{tall.eur}}</td>
+      <td>{{tall.usHombre}}</td>
+      <td>{{tall.usMujer}}</td>
+    </tr>
+  </table>
+</main>
+
+<div class="parrafo">
+
+  <h2>CÓMO ENCONTRAR TU TALLA</h2>
+
+  <div>
+    <p class="pasos">
+      Para saber cuál es tu talla, sigue los siguientes pasos: <br>
+      1. PECHO <br>
+      Para saber qué talla llevas, rodea tus pectorales con una cinta métrica flexible en la parte de mayor
+      volumen. <br>
+      2. CINTURA <br>
+      Rodea la parte más estrecha de tu cintura con una cinta métrica. <br>
+      3. HIP <br>
+      Ponte de pie con los pies juntos y rodea tus caderas con una cinta métrica en la parte de mayor volumen.
+    </p>
+
+  </div>
+</div>
